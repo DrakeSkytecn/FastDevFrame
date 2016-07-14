@@ -22,9 +22,6 @@ import com.beyebe.fastdevframe.model.User
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-/**
- * MainActivity
- */
 class MainActivity : AppCompatActivity(), ContactFragment.OnContactFragmentInteractionListener {
 
     private var menuData: MutableList<HashMap<String, Any>> = mutableListOf()
