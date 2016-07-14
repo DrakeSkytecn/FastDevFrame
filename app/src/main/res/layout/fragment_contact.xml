@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beyebe.fastdevframe.fragment.ContactFragment">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.beyebe.fastdevframe.view.widget.LoadMoreRecyclerView
+            android:id="@+id/loadMoreRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        app:menu_colorNormal="@android:color/darker_gray"
+        app:menu_colorPressed="@android:color/darker_gray"
+        app:menu_colorRipple="@android:color/holo_blue_light">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_add"
+            app:fab_colorNormal="@android:color/darker_gray"
+            app:fab_colorPressed="@android:color/darker_gray"
+            app:fab_colorRipple="@android:color/holo_blue_light" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_delete"
+            app:fab_colorNormal="@android:color/darker_gray"
+            app:fab_colorPressed="@android:color/darker_gray"
+            app:fab_colorRipple="@android:color/holo_blue_light" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</FrameLayout>
+

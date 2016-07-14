@@ -1,0 +1,24 @@
+<resources>
+    <style name="MainAnimationStyle" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/splash_fade_out</item>
+    </style>
+
+    <style name="UISegmentStyle">
+        <item name="android:textSize">@dimen/filter_tab_font_size</item>
+        <item name="android:textColor">@color/radio_txt_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="UISegmentLeftStyle" parent="UISegmentStyle">
+        <item name="android:background">@drawable/filter_tab_left_selector</item>
+    </style>
+
+    <style name="UISegmentRightStyle" parent="UISegmentStyle">
+        <item name="android:background">@drawable/filter_tab_right_selector</item>
+    </style>
+
+
+</resources>

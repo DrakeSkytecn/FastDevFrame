@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">FastDevFrame</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_user_guide">MainActivity</string>
+    <string name="title_activity_main">Kratos</string>
+    <string name="title_activity_test">Test</string>
+    <string name="title_activity_dial">Dial</string>
+    <string name="dummy_content">快速开发框架</string>
+    <string name="close">关闭</string>
+    <string name="open">打开</string>
+    <string name="loading">加载中...</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_message">消息</string>
+
+    <string name="tab_1">Label 1</string>
+    <string name="tab_2">Label 2</string>
+    <string name="tab_3">Label 3</string>
+    <string name="tab_4">Label 4</string>
+    <string name="tab_5">Label 5</string>
+
+    <string name="menu_1">Menu 1</string>
+    <string name="menu_2">Menu 2</string>
+    <string name="menu_3">Menu 3</string>
+    <string name="menu_4">Menu 4</string>
+    <string name="menu_5">Menu 5</string>
+    <string name="call">通话</string>
+    <string name="contact">联系人</string>
+
+</resources>
