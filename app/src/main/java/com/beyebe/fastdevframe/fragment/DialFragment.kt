@@ -59,9 +59,6 @@ class DialFragment : Fragment() {
                 R.id.contact_segment -> dial_view_pager.setCurrentItem(1, false)
             }
         }
-        button.setOnClickListener {
-            Log.d(TAG, "setOnClickListener")
-        }
     }
 
     private fun showDial() {
@@ -70,12 +67,12 @@ class DialFragment : Fragment() {
     }
 
     private fun hideDial() {
-        dialAnimationType(ObjectAnimator.ofFloat(dial_view, "translationY", WoWoUtil.dp2px(200, activity).toFloat()))
+        dialAnimationType(ObjectAnimator.ofFloat(dial_view, "translationY", WoWoUtil.dp2px(263, activity).toFloat()))
         isDialShow = false
     }
 
     private fun dialAnimationType(animation: ObjectAnimator) {
-        animation.duration = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
+        animation.duration = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
         animation.start()
     }
 

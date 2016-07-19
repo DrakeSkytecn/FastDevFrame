@@ -60,20 +60,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="263dp"
         android:layout_gravity="bottom"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/white"
         android:id="@+id/dial_view"
         android:gravity="bottom|center"
         android:orientation="vertical"
         android:layout_alignParentBottom="true">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button" />
-    </LinearLayout>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.beyebe.fastdevframe.fragment.DialPlateFragment"
+            tools:layout="@layout/fragment_dial_plate" />
 
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
