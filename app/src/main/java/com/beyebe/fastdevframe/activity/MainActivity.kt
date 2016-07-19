@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), ContactFragment.OnContactFragmentInter
         pagerSlidingTabStrip.shouldExpand = true
         pagerSlidingTabStrip.indicatorColor = Color.BLUE
         pagerSlidingTabStrip.dividerColor = Color.GRAY
-        pagerSlidingTabStrip.background = ColorDrawable(Color.parseColor("#4876FF"))
+        pagerSlidingTabStrip.setBackgroundColor(Color.parseColor("#4876FF"))
         pagerSlidingTabStrip.underlineHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 1f, resources.displayMetrics).toInt()
         pagerSlidingTabStrip.indicatorHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
