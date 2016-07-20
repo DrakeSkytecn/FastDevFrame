@@ -35,7 +35,7 @@
             <!--android:label="@string/title_activity_dial"/>-->
         <activity
             android:name=".activity.RootActivity"
-            android:theme="@style/MainTheme"
+            android:theme="@style/AppTheme.Base"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -20,7 +20,7 @@ import com.beyebe.fastdevframe.view.widget.LoadMoreRecyclerView
 import io.realm.Realm
 import jp.wasabeef.recyclerview.animators.FadeInAnimator
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator
-import kotlinx.android.synthetic.main.fragment_contact.view.*
+import kotlinx.android.synthetic.main.fragment_contact.*
 
 class ContactFragment : Fragment() {
 
@@ -43,21 +43,21 @@ class ContactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         contactRecyclerViewAdapter = ContactRecyclerViewAdapter(realm?.where(User::class.java)!!.findAll(), mListener)
-        view?.loadMoreRecyclerView?.layoutManager = LinearLayoutManager(context)
-        view?.loadMoreRecyclerView?.itemAnimator = FadeInAnimator(OvershootInterpolator(0.5f))
-        view?.loadMoreRecyclerView?.addItemDecoration(DividerItemDecoration(context, null))
-        view?.loadMoreRecyclerView?.adapter = contactRecyclerViewAdapter
-        view?.loadMoreRecyclerView?.setAutoLoadMoreEnable(true)
+        loadMoreRecyclerView.layoutManager = LinearLayoutManager(context)
+        loadMoreRecyclerView.itemAnimator = FadeInAnimator(OvershootInterpolator(0.5f))
+        loadMoreRecyclerView.addItemDecoration(DividerItemDecoration(context, null))
+        loadMoreRecyclerView.adapter = contactRecyclerViewAdapter
+        loadMoreRecyclerView.setAutoLoadMoreEnable(true)
 
-        view?.swipeRefreshLayout?.setOnRefreshListener {
+        swipeRefreshLayout.setOnRefreshListener {
             Handler().postDelayed({
                 contactRecyclerViewAdapter?.users = realm?.where(User::class.java)!!.findAll()
                 contactRecyclerViewAdapter?.notifyDataSetChanged()
-                view?.loadMoreRecyclerView?.scrollToPosition(0)
-                view?.swipeRefreshLayout?.isRefreshing = false
+                loadMoreRecyclerView.scrollToPosition(0)
+                swipeRefreshLayout.isRefreshing = false
             }, 2000)
         }
-                view?.loadMoreRecyclerView?.setLoadMoreListener(object : LoadMoreRecyclerView.LoadMoreListener {
+                loadMoreRecyclerView.setLoadMoreListener(object : LoadMoreRecyclerView.LoadMoreListener {
 
                     override fun onLoadMore() {
                         Handler().postDelayed({
@@ -65,22 +65,22 @@ class ContactFragment : Fragment() {
                                 addUser()
                             }
                             contactRecyclerViewAdapter?.users = realm?.where(User::class.java)!!.findAll()
-                            view?.loadMoreRecyclerView?.notifyMoreFinish(true)
+                            loadMoreRecyclerView.notifyMoreFinish(true)
                         }, 2000)
                     }
                 })
 
-        view?.addBtn?.setOnClickListener {
-            //view?.loadMoreRecyclerView?.setAutoLoadMoreEnable(true)
+        addBtn.setOnClickListener {
+            //.loadMoreRecyclerView?.setAutoLoadMoreEnable(true)
             addUser()
             contactRecyclerViewAdapter?.users = realm?.where(User::class.java)!!.findAll()
             contactRecyclerViewAdapter?.notifyItemInserted(contactRecyclerViewAdapter?.users!!.size - 1)
-            view?.loadMoreRecyclerView?.scrollToPosition(contactRecyclerViewAdapter?.users!!.size - 1)
+            loadMoreRecyclerView.scrollToPosition(contactRecyclerViewAdapter?.users!!.size - 1)
         }
 
-        view?.deleteBtn?.setOnClickListener {
+        deleteBtn.setOnClickListener {
             contactRecyclerViewAdapter?.notifyItemRangeRemoved(0, contactRecyclerViewAdapter?.users!!.size - 1)
-            view?.loadMoreRecyclerView?.scrollToPosition(0)
+            loadMoreRecyclerView.scrollToPosition(0)
             deleteAllUsersData()
         }
     }

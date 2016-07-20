@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.beyebe.fastdevframe.fragment.DialPlateFragment">
+    tools:context="com.beyebe.fastdevframe.fragment.DialPlateFragment"
+    android:background="@android:color/white">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -35,10 +36,11 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
-    <GridView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
         android:id="@+id/dial_plate"
-        android:numColumns="3" />
+        android:background="@color/material_grey_300" />
 
 </LinearLayout>
