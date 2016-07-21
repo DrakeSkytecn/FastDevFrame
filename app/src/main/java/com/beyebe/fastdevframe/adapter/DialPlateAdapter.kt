@@ -76,7 +76,7 @@ class DialPlateAdapter(private val onDialPlateItemClickListener: OnDialPlateItem
             }
         }
         mHolder!!.itemView.setOnClickListener {
-            onDialPlateItemClickListener.onItemClick(position)
+            onDialPlateItemClickListener.onItemClick(mHolder!!.itemView, position)
         }
     }
 
@@ -107,7 +107,7 @@ class DialPlateAdapter(private val onDialPlateItemClickListener: OnDialPlateItem
 
     interface OnDialPlateItemClickListener {
 
-        fun onItemClick(position: Int)
+        fun onItemClick(view: View, position: Int)
     }
 
 }
