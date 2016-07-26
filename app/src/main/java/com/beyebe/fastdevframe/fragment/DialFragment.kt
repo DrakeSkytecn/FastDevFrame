@@ -7,8 +7,10 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.beyebe.fastdevframe.R
 import com.beyebe.fastdevframe.adapter.DialCallViewPagerAdapter
 import com.nightonke.wowoviewpager.WoWoUtil
@@ -61,13 +63,21 @@ class DialFragment : Fragment() {
         }
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        Log.d(TAG, "onHiddenChanged")
+    }
+
     private fun showDial() {
         dialAnimationType(ObjectAnimator.ofFloat(dial_view, "translationY", 0f))
         isDialShow = true
     }
 
     private fun hideDial() {
-        dialAnimationType(ObjectAnimator.ofFloat(dial_view, "translationY", WoWoUtil.dp2px(263, activity).toFloat()))
+        if (view == null) {
+            Log.d(TAG, "DialFragment view == null")
+        }
+        dialAnimationType(ObjectAnimator.ofFloat(dial_view, "translationY", WoWoUtil.dp2px(265, activity).toFloat()))
         isDialShow = false
     }
 
@@ -76,10 +86,14 @@ class DialFragment : Fragment() {
         animation.start()
     }
 
-    fun changeDialState() {
+    fun changeDialState(item: MenuItem) {
         if (!isDialShow) {
+            item.setIcon(R.mipmap.dial_down)
+            item.setTitle(R.string.menu_1_1)
             showDial()
         } else {
+            item.setIcon(R.mipmap.dial_up)
+            item.setTitle(R.string.menu_1_2)
             hideDial()
         }
     }

@@ -1,38 +1,33 @@
 package com.beyebe.fastdevframe.adapter
 
-import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.view.ViewGroup
-import com.beyebe.fastdevframe.fragment.DialFragment
-
-import com.beyebe.fastdevframe.fragment.ShopFragment
-
-import java.util.ArrayList
 
 /**
  * Created by daiquanyi on 16/7/13.
  */
-class DialViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-
-    val fragments = ArrayList<Fragment>()
-    var currentFragment: Fragment? = null
+class DialViewPagerAdapter(private val fragments:Array<Fragment>, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     init {
-        fragments.add(DialFragment())
-        fragments.add(ShopFragment())
+        // Clean fragments (only if the app is recreated (When user disable permission))
+        if (fragmentManager.backStackEntryCount > 0) {
+            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
+
+        // Remove previous fragments (case of the app was restarted after changed permission on android 6 and higher)
+        val fragmentList = fragmentManager.fragments
+        if (fragmentList != null) {
+            for (fragment in fragmentList) {
+                if (fragment != null) {
+                    fragmentManager.beginTransaction().remove(fragment).commit()
+                }
+            }
+        }
     }
 
     override fun getItem(position: Int): Fragment {
         return fragments[position]
-    }
-
-    override fun setPrimaryItem(container: ViewGroup?, position: Int, `object`: Any) {
-        if (currentFragment !== `object`) {
-            currentFragment = `object` as Fragment
-        }
-        super.setPrimaryItem(container, position, `object`)
     }
 
     override fun getCount(): Int {

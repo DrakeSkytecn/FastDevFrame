@@ -84,7 +84,7 @@ class DialPlateAdapter(private val onDialPlateItemClickListener: OnDialPlateItem
         return 12
     }
 
-    inner class ItemAViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+    inner class ItemAViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
 
         val number: TextView
         val character: TextView
@@ -95,7 +95,7 @@ class DialPlateAdapter(private val onDialPlateItemClickListener: OnDialPlateItem
         }
     }
 
-    inner class ItemBViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+    inner class ItemBViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
         val icon: ImageView
         val hint: TextView
 

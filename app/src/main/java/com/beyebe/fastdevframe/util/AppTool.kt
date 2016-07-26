@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.provider.Contacts
-import android.provider.ContactsContract
 import android.provider.Settings
 import com.beyebe.fastdevframe.R
 import java.util.regex.Pattern

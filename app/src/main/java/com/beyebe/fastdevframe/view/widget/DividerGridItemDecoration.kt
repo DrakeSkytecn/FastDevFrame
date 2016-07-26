@@ -76,7 +76,7 @@ class DividerGridItemDecoration(context: Context) : RecyclerView.ItemDecoration(
         }
     }
 
-    private fun isLastColum(parent: RecyclerView, pos: Int, spanCount: Int,
+    private fun isLastColumn(parent: RecyclerView, pos: Int, spanCount: Int,
                             childCount: Int): Boolean {
         var childCount = childCount
         val layoutManager = parent.layoutManager
@@ -104,7 +104,7 @@ class DividerGridItemDecoration(context: Context) : RecyclerView.ItemDecoration(
         return false
     }
 
-    private fun isLastRaw(parent: RecyclerView, pos: Int, spanCount: Int,
+    private fun isLastRow(parent: RecyclerView, pos: Int, spanCount: Int,
                           childCount: Int): Boolean {
         var childCount = childCount
         val layoutManager = parent.layoutManager
@@ -136,12 +136,12 @@ class DividerGridItemDecoration(context: Context) : RecyclerView.ItemDecoration(
     override fun getItemOffsets(outRect: Rect, itemPosition: Int,
                                 parent: RecyclerView) {
         val spanCount = getSpanCount(parent)
-        val childCount = parent!!.adapter.itemCount
-        if (isLastRaw(parent, itemPosition, spanCount, childCount))
+        val childCount = parent.adapter.itemCount
+        if (isLastRow(parent, itemPosition, spanCount, childCount))
         // 如果是最后一行，则不需要绘制底部
         {
             outRect.set(0, 0, mDivider.intrinsicWidth, 0)
-        } else if (isLastColum(parent, itemPosition, spanCount, childCount))
+        } else if (isLastColumn(parent, itemPosition, spanCount, childCount))
         // 如果是最后一列，则不需要绘制右边
         {
             outRect.set(0, 0, 0, mDivider.intrinsicHeight)
